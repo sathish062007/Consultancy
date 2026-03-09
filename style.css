@@ -393,3 +393,41 @@ body {
     gap: 30px;
   }
 }
+
+/* Hover Image Popup Styles */
+.hover-trigger {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.hover-trigger .hover-image {
+  display: none;
+  position: absolute;
+  top: -100px;
+  left: 105%;
+  width: 300px;
+  max-width: none;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  z-index: 100;
+  border: 4px solid var(--secondary);
+}
+
+.hover-trigger:hover .hover-image {
+  display: block;
+  animation: fadeInImage 0.3s ease-in-out;
+}
+
+@keyframes fadeInImage {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .hover-trigger .hover-image {
+    top: 30px;
+    left: 0;
+    width: 250px;
+  }
+}
+
