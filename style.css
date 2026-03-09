@@ -1,0 +1,395 @@
+:root {
+  --primary: #4A154B; /* Adjusted to a rich purple matching closer to the poster */
+  --secondary: #FDB813; /* Bright gold/yellow */
+  --text-light: #FFFFFF;
+  --text-dark: #111111;
+  --bg-white: #FFFFFF;
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* Header & Hero Area */
+.hero-section {
+  background-color: var(--primary);
+  color: var(--text-light);
+  position: relative;
+  padding-bottom: 50px;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  padding: 30px 5%;
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.logo-wrapper {
+  background-color: var(--bg-white);
+  border-radius: 50%;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.title-wrapper {
+  flex: 1;
+}
+
+.main-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.sub-title {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.tagline {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.title-divider {
+  height: 2px;
+  background-color: var(--secondary);
+  width: 100px;
+  margin-top: 15px;
+}
+
+/* Wavy divider at bottom of header */
+.wave-shape {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: translateY(98%);
+  z-index: 1;
+}
+
+.wave-shape svg {
+  position: relative;
+  display: block;
+  width: calc(150% + 1.3px);
+  height: 120px;
+}
+
+.wave-shape .shape-fill {
+  fill: var(--primary);
+}
+
+/* Main Content Area */
+.content-section {
+  position: relative;
+  padding: 60px 0;
+  z-index: 2;
+}
+
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+  align-items: center;
+  gap: 50px;
+}
+
+/* Left Content */
+.left-content {
+  flex: 1;
+}
+
+.admission-block {
+  margin-bottom: 40px;
+}
+
+.highlight-text {
+  color: var(--secondary);
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  line-height: 1.2;
+}
+
+.large-highlight {
+  font-size: 58px;
+}
+
+.offers-block {
+  margin-top: 30px;
+}
+
+.offer-title-container {
+  display: inline-block;
+  background-color: var(--secondary);
+  padding: 5px 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  transform: skew(-10deg);
+}
+
+.offers-title {
+  color: var(--text-dark);
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+  transform: skew(10deg); /* Counter skew */
+  font-size: 28px;
+}
+
+.colleges-list {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.colleges-list li {
+  position: relative;
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.colleges-list li::before {
+  content: "•";
+  color: var(--secondary);
+  font-size: 24px;
+  position: absolute;
+  left: -20px;
+  top: -4px;
+}
+
+/* Right Content */
+.right-content {
+  flex: 1;
+  position: relative;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  border-radius: 50% 50% 0 50%; /* Custom shape matching the poster somewhat */
+  padding: 15px;
+  background-color: var(--secondary);
+  box-shadow: var(--box-shadow);
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.image-container {
+  overflow: hidden;
+  border-radius: 50% 50% 0 50%;
+  aspect-ratio: 1;
+}
+
+.graduates-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.hero-image-wrapper:hover .graduates-img {
+  transform: scale(1.05);
+}
+
+.badge-icon {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 10px solid var(--secondary);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.cap-svg {
+  width: 50px;
+  height: 50px;
+}
+
+/* Action Banners */
+.action-banners {
+  padding: 40px 0;
+  margin-top: 20px;
+}
+
+.action-container {
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 30px;
+}
+
+.action-pill {
+  border-radius: 50px;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.action-pill:hover {
+  transform: translateY(-5px);
+}
+
+.primary-pill {
+  background-color: var(--primary);
+  color: var(--text-light);
+  flex: 1.5;
+  border-radius: 0 50px 50px 0; /* Flat left side */
+  margin-left: -5%; /* Pull to edge */
+}
+
+.secondary-pill {
+  background-color: var(--secondary);
+  color: var(--text-dark);
+  flex: 1;
+  border-radius: 50px;
+}
+
+/* Footer Section */
+.footer-section {
+  background-color: var(--bg-white);
+  padding: 40px 0 0;
+  position: relative;
+}
+
+.footer-container {
+  justify-content: space-around;
+  padding-bottom: 40px;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.align-right {
+  flex-direction: row; /* Adjusted to keep icon on right */
+}
+
+.icon-box {
+  background-color: var(--primary);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.footer-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-right {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.contact-label {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.contact-value {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-dark);
+  text-decoration: none;
+  font-family: 'Playfair Display', serif;
+}
+
+.contact-value:hover {
+  color: var(--primary);
+}
+
+.footer-bottom-bar {
+  height: 20px;
+  background-color: var(--primary);
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .header-top {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .title-divider {
+    margin: 15px auto 0;
+  }
+  
+  .colleges-list {
+    text-align: left;
+    display: inline-block;
+  }
+
+  .action-container {
+    flex-direction: column;
+  }
+  
+  .primary-pill {
+    margin-left: 0;
+    border-radius: 50px;
+  }
+  
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
