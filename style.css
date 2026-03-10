@@ -1,6 +1,8 @@
 :root {
-  --primary: #4A154B; /* Adjusted to a rich purple matching closer to the poster */
-  --secondary: #FDB813; /* Bright gold/yellow */
+  --primary: #4A154B;
+  /* Adjusted to a rich purple matching closer to the poster */
+  --secondary: #FDB813;
+  /* Bright gold/yellow */
   --text-light: #FFFFFF;
   --text-dark: #111111;
   --bg-white: #FFFFFF;
@@ -46,7 +48,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
@@ -162,7 +164,8 @@ body {
   color: var(--text-dark);
   font-family: 'Playfair Display', serif;
   font-weight: 800;
-  transform: skew(10deg); /* Counter skew */
+  transform: skew(10deg);
+  /* Counter skew */
   font-size: 28px;
 }
 
@@ -176,6 +179,13 @@ body {
   margin-bottom: 15px;
   font-size: 18px;
   font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.colleges-list li:hover {
+  color: var(--primary);
+  font-weight: 700;
 }
 
 .colleges-list li::before {
@@ -195,7 +205,8 @@ body {
 
 .hero-image-wrapper {
   position: relative;
-  border-radius: 50% 50% 0 50%; /* Custom shape matching the poster somewhat */
+  border-radius: 50% 50% 0 50%;
+  /* Custom shape matching the poster somewhat */
   padding: 15px;
   background-color: var(--secondary);
   box-shadow: var(--box-shadow);
@@ -233,7 +244,7 @@ body {
   align-items: center;
   justify-content: center;
   border: 10px solid var(--secondary);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .cap-svg {
@@ -275,8 +286,10 @@ body {
   background-color: var(--primary);
   color: var(--text-light);
   flex: 1.5;
-  border-radius: 0 50px 50px 0; /* Flat left side */
-  margin-left: -5%; /* Pull to edge */
+  border-radius: 0 50px 50px 0;
+  /* Flat left side */
+  margin-left: -5%;
+  /* Pull to edge */
 }
 
 .secondary-pill {
@@ -305,7 +318,8 @@ body {
 }
 
 .align-right {
-  flex-direction: row; /* Adjusted to keep icon on right */
+  flex-direction: row;
+  /* Adjusted to keep icon on right */
 }
 
 .icon-box {
@@ -316,7 +330,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .footer-icon {
@@ -364,16 +378,16 @@ body {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .header-top {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .title-divider {
     margin: 15px auto 0;
   }
-  
+
   .colleges-list {
     text-align: left;
     display: inline-block;
@@ -382,52 +396,78 @@ body {
   .action-container {
     flex-direction: column;
   }
-  
+
   .primary-pill {
     margin-left: 0;
     border-radius: 50px;
   }
-  
+
   .footer-container {
     flex-direction: column;
     gap: 30px;
   }
 }
 
-/* Hover Image Popup Styles */
-.hover-trigger {
-  cursor: pointer;
-  display: inline-block;
-}
-
-.hover-trigger .hover-image {
+/* Modal styles for college images */
+.modal {
   display: none;
-  position: absolute;
-  top: -100px;
-  left: 105%;
-  width: 300px;
-  max-width: none;
-  border-radius: 8px;
-  box-shadow: var(--box-shadow);
-  z-index: 100;
-  border: 4px solid var(--secondary);
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.hover-trigger:hover .hover-image {
+.modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-img {
+  margin: auto;
   display: block;
-  animation: fadeInImage 0.3s ease-in-out;
+  max-width: 90%;
+  max-height: 90vh;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation-name: zoom;
+  animation-duration: 0.3s;
+  object-fit: contain;
 }
 
-@keyframes fadeInImage {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+@keyframes zoom {
+  from {
+    transform: scale(0.8)
+  }
 
-@media (max-width: 900px) {
-  .hover-trigger .hover-image {
-    top: 30px;
-    left: 0;
-    width: 250px;
+  to {
+    transform: scale(1)
   }
 }
 
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  z-index: 1001;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: var(--secondary);
+  text-decoration: none;
+  cursor: pointer;
+}
